@@ -36,4 +36,5 @@ export class TaskStore {
     filterTasks(filters: any) {
         this.api.getFilteredTasks(filters).subscribe((tasks) => this.tasksSignal.set(tasks));
     }
+    
 }

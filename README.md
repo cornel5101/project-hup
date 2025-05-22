@@ -1,8 +1,14 @@
-# Project Structure
+
+## To demo the application, visit the link below
+```bash
+http://172.93.51.119/projecthub/
+```
+
+## Project Structure
 
 This file dynamically outlines the folder and file structure of the current directory.
 
-```
+```yml
 projecthub/
 ├── .editorconfig
 ├── .gitignore
@@ -100,7 +106,7 @@ projecthub/
 
 ```
 
-# ProjectHub todo application
+## ProjectHub todo application
 
 This is a todo application to create projects, create tasks, add tasks to projects and then assign tasks to users.
 ---
@@ -116,10 +122,10 @@ ProjectHub offers the following core functionalities:
 
 ---
 
-### Install dependencies:**
-    ```bash
-    npm install
-    ```
+### Install dependencies:** 
+``` bash
+npm install
+```
 ### Running the Application
 
 To start the development server and run the ProjectHub application locally:
