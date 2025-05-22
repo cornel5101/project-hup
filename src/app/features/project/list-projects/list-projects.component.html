@@ -121,8 +121,8 @@
       <tr *ngFor="let project of paginatedProjects()">
         <td>{{ project.name }}</td>
         <td>{{ project.description }}</td>
-        <td>{{ project.startDate }}</td>
-        <td>{{ project.endDate }}</td>
+        <td>{{ project.startDate | date:'yyyy-MM-dd' }}</td>
+        <td>{{ project.endDate | date:'yyyy-MM-dd'}}</td>
         <td>{{ project.status }}</td>
         <td>{{ project.priority }}</td>
         <td>

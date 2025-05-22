@@ -154,8 +154,8 @@
       <tr *ngFor="let task of paginatedTasks()">
         <td>{{ task.title }}</td>
         <td>{{ task.description }}</td>
-        <td>{{ task.startDate }}</td>
-        <td>{{ task.dueDate }}</td>
+        <td>{{ task.startDate  | date:'yyyy-MM-dd' }}</td>
+        <td>{{ task.dueDate  | date:'yyyy-MM-dd' }}</td>
         <td>{{ getUserName(task.assignedUserId) }}</td>
         <td>{{ getProjectName(task.projectId) }}</td>
         <td>{{ task.status }}</td>
