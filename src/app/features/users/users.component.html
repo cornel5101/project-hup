@@ -1,0 +1,81 @@
+<!-- Button trigger modal -->
+<div class="row mb-3">
+    <div class="col-md-6">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#usersModal">
+            Create User
+        </button>
+    </div>
+</div>
+
+<!-- Filter -->
+<div class="row mb-3">
+    <div class="col-md-3">
+        <input type="text" class="form-control" placeholder="Search users..." (input)="onSearchChange($event)" />
+    </div>
+</div>
+
+<!-- User Modal -->
+<div class="modal fade" id="usersModal" tabindex="-1" aria-labelledby="usersModalLabel" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="usersModalLabel">
+                        {{ editingUserId ? 'Edit User' : 'Add New User' }}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        (click)="cancelEdit()"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Name" formControlName="name">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Email" formControlName="email">
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" formControlName="role">
+                            <option value="User">User</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">
+                        {{ editingUserId ? 'Update' : 'Add User' }}
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        (click)="cancelEdit()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- User Table -->
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of filteredUsers()">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+            <td>{{ user.createdAt | date: 'short' }}</td>
+            <td>
+                <button class="btn btn-sm btn-warning me-2" (click)="editUser(user)">Edit</button>
+                <button class="btn btn-sm btn-danger" (click)="deleteUser(user.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

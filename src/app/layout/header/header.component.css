@@ -1,0 +1,9 @@
+.navbar-nav-right {
+    margin-left: auto !important;
+}
+
+.navbar-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
